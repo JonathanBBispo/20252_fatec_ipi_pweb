@@ -1,14 +1,19 @@
 package com.fatec.loja;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Produto {
+    @Id
     private int codigo;
     private String nome;
     private String descritivo;
+    private String keywords;
     private double valor;
     private double promo;
-    private int quantidade;
+    private int estoque;
     private int destaque;
-    private String keywords;
 
     public int getCodigo() {
         return codigo;
@@ -28,6 +33,12 @@ public class Produto {
     public void setDescritivo(String descritivo) {
         this.descritivo = descritivo;
     }
+    public String getKeywords() {
+        return keywords;
+    }
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
+    }
     public double getValor() {
         return valor;
     }
@@ -40,23 +51,17 @@ public class Produto {
     public void setPromo(double promo) {
         this.promo = promo;
     }
-    public int getQuantidade() {
-        return quantidade;
+    public int getEstoque() {
+        return estoque;
     }
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+    public void setEstoque(int estoque) {
+        this.estoque = estoque;
     }
     public int getDestaque() {
         return destaque;
     }
     public void setDestaque(int destaque) {
         this.destaque = destaque;
-    }
-    public String getKeywords() {
-        return keywords;
-    }
-    public void setKeywords(String keywords) {
-        this.keywords = keywords;
     }
 
     
