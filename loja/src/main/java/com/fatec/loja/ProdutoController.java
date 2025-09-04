@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProdutoController {
     @Autowired
     private ProdutoRepository bd;
+    @Autowired
+    LojaService service;
 
     @PostMapping("/api/produto")
     public void gravar(@RequestBody Produto obj) {
@@ -52,5 +54,11 @@ public class ProdutoController {
     @GetMapping("/api/produto/busca/{termo}")
     public List<Produto> fazerBusca(@PathVariable("termo") String termo) {
         return bd.fazerBusca("%" + termo + "%");
+    }
+
+    @PutMapping("/api/produto/testeEmail")
+    public void enviarEmail() {
+        String msg = service.enviarEmail(" ", " ", " ");
+        System.out.println(msg);
     }
 }
